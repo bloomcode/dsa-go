@@ -2,7 +2,7 @@
 
 <!-- progress:start -->[![progress](https://img.shields.io/badge/progress-0%2F282-lightgrey)](PROGRESS.md)<!-- progress:end -->
 
-282 exercises in 33 chapters, for engineers preparing for coding interviews and contests. Every exercise is a stub that calls `panic("todo")` and has its own test. Write the code, make the test pass, move on.
+282 exercises in 26 chapters, for engineers preparing for coding interviews and contests. Every exercise is a stub that calls `panic("todo")` and has its own test. Write the code, make the test pass, move on.
 
 The workbook explains each exercise and the answer key has a reference solution: [workbook](https://bloomcode.github.io/dsa/go/workbook.html) · [answer key](https://bloomcode.github.io/dsa/go/answer-key.html) · [concept guide](https://bloomcode.github.io/dsa/guide/).
 
@@ -10,17 +10,17 @@ The workbook explains each exercise and the answer key has a reference solution:
 
 1. Click **Use this template**, then **Create a new repository**. Use the template rather than forking: your copy gets its own history, can be private, and the progress workflow runs in it.
 2. Clone your repository and install Go 1.24+.
-3. Run `make test EX=1.1`. It fails until you write exercise 1.1.
+3. Run `make test EX=11.1`. It fails until you write exercise 11.1.
 
 ## Work on an exercise
 
-1. Open `chNN/<topic>.go` and find the block that starts with `// ==== EX 3.2`. Read its PROMPT, EXAMPLE and BIGO lines.
+1. Open `chNN/<topic>.go` and find the block that starts with `// ==== EX 13.2`. Read its PROMPT, EXAMPLE and BIGO lines.
 2. Replace the stub with your code. Keep the name and signature: the test calls them.
 3. Run the test:
 
 ```sh
-make test EX=3.2   # one exercise
-make test EX=3     # one chapter
+make test EX=13.2  # one exercise
+make test EX=13    # one chapter
 make test          # everything
 make progress      # rewrite PROGRESS.md and the badge locally
 ```
@@ -58,14 +58,11 @@ If a file you have worked on conflicts, keep your version of your code (`git che
 
 | Part | Chapters |
 | --- | --- |
-| Arrays, sets and searching | 1 Arrays and sets · 2 Ordered arrays · 3 Big O |
-| Sorting and everyday Big O | 4 Bubble sort · 5 Selection sort · 6 Insertion sort · 7 Everyday Big O |
-| Hash tables, stacks and queues | 8 Hash tables · 9 Stacks and queues |
-| Recursion, dynamic programming and quicksort | 10 Recursion basics · 11 Writing recursive · 12 Dynamic programming · 13 Quicksort |
-| Linked lists, trees, heaps and tries | 14 Linked lists · 15 Binary search trees · 16 Heaps · 17 Tries |
-| Graphs, space and optimization | 18 Graphs · 19 Space complexity · 20 Optimization techniques |
-| Sorting, speed and chance | 21 Mergesort · 22 Benchmarking · 23 Randomness |
-| Caches and balanced trees | 24 Caching · 25 Red-black trees · 26 Treaps |
-| Data bigger than memory | 27 B-trees · 28 External sort |
-| Randomized algorithms | 29 Monte Carlo · 30 Hashing · 31 Rabin-Karp |
-| Sets in a few bits | 32 Bit vectors · 33 Bloom filters |
+| Cost and measurement | 11 Counting steps · 12 Memory · 13 Timing |
+| Sequences | 21 Arrays · 22 Sorted search · 23 Linked lists · 24 Stacks and queues |
+| Sorting | 31 Simple sorts · 32 Divide and conquer |
+| Hashing | 41 Hash tables · 42 Hash functions · 43 Text search |
+| Trees | 51 Search trees · 52 Heaps · 53 Tries · 54 Balanced trees · 55 B-trees |
+| Graphs | 61 Graph traversal · 62 Paths and order |
+| Algorithm design | 71 Recursion · 72 Dynamic programming · 73 Greedy and transforms · 74 Randomized |
+| Systems and scale | 81 Caching · 82 External sort · 83 Compact sets |
