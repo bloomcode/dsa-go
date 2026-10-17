@@ -1,0 +1,293 @@
+# Track metadata. The site builder and tools/check_track.py read this file.
+track = "dsa"
+language = "go"
+name = "Data structures and algorithms"
+sources = "ch*/*.go"
+test = "go vet ./... && go test ./..."
+exercises = 282
+
+[[parts]]
+n = 1
+name = "Arrays, sets and searching"
+chapters = [1, 2, 3]
+
+[[parts]]
+n = 2
+name = "Sorting and everyday Big O"
+chapters = [4, 5, 6, 7]
+
+[[parts]]
+n = 3
+name = "Hash tables, stacks and queues"
+chapters = [8, 9]
+
+[[parts]]
+n = 4
+name = "Recursion, dynamic programming and quicksort"
+chapters = [10, 11, 12, 13]
+
+[[parts]]
+n = 5
+name = "Linked lists, trees, heaps and tries"
+chapters = [14, 15, 16, 17]
+
+[[parts]]
+n = 6
+name = "Graphs, space and optimization"
+chapters = [18, 19, 20]
+
+[[parts]]
+n = 7
+name = "Sorting, speed and chance"
+chapters = [21, 22, 23]
+
+[[parts]]
+n = 8
+name = "Caches and balanced trees"
+chapters = [24, 25, 26]
+
+[[parts]]
+n = 9
+name = "Data bigger than memory"
+chapters = [27, 28]
+
+[[parts]]
+n = 10
+name = "Randomized algorithms"
+chapters = [29, 30, 31]
+
+[[parts]]
+n = 11
+name = "Sets in a few bits"
+chapters = [32, 33]
+
+[[chapters]]
+n = 1
+title = "Arrays, sets and the cost of a step"
+short = "Arrays and sets"
+focus = "Build every array operation by hand and count its steps: read, search, insert and delete at the start, middle and end."
+file = "ch01/arrays.go"
+
+[[chapters]]
+n = 2
+title = "Ordered arrays and binary search"
+short = "Ordered arrays"
+focus = "Keeping data sorted makes insertion slower and search exponentially faster."
+file = "ch02/ordered.go"
+
+[[chapters]]
+n = 3
+title = "Big O: how the step count grows"
+short = "Big O"
+focus = "Write one algorithm per growth class and count how its steps scale."
+file = "ch03/bigo.go"
+
+[[chapters]]
+n = 4
+title = "Bubble sort and quadratic code"
+short = "Bubble sort"
+focus = "See quadratic code, then replace a nested loop with a single pass."
+file = "ch04/bubble.go"
+
+[[chapters]]
+n = 5
+title = "Selection sort and constant factors"
+short = "Selection sort"
+focus = "Two algorithms in the same Big O class can still differ by a constant factor."
+file = "ch05/selection.go"
+
+[[chapters]]
+n = 6
+title = "Insertion sort in the best and worst case"
+short = "Insertion sort"
+focus = "Measure best, average and worst cases of one algorithm."
+file = "ch06/insertion.go"
+
+[[chapters]]
+n = 7
+title = "Big O in day-to-day code"
+short = "Everyday Big O"
+focus = "Classify the kind of code you write every day. Watch for loops that look nested but are not."
+file = "ch07/everyday.go"
+
+[[chapters]]
+n = 8
+title = "Hash tables and constant-time lookup"
+short = "Hash tables"
+focus = "Build a hash table, then use dictionaries to turn O(N^2) searches into O(N)."
+file = "ch08/hashtables.go"
+
+[[chapters]]
+n = 9
+title = "Stacks, queues and their constraints"
+short = "Stacks and queues"
+focus = "Constrained structures: last in first out, first in first out."
+file = "ch09/stacks.go"
+
+[[chapters]]
+n = 10
+title = "Recursion: a base case and a smaller problem"
+short = "Recursion basics"
+focus = "Find the base case, then let the function call itself on a smaller problem."
+file = "ch10/recursion.go"
+
+[[chapters]]
+n = 11
+title = "Thinking recursively"
+short = "Writing recursive"
+focus = "Top-down thinking: assume the call already works on the subproblem."
+file = "ch11/writing.go"
+
+[[chapters]]
+n = 12
+title = "Dynamic programming: memoize or build up"
+short = "Dynamic programming"
+focus = "Remove overlapping subproblems with memoization or a bottom-up loop."
+file = "ch12/dp.go"
+
+[[chapters]]
+n = 13
+title = "Partitioning: quicksort and quickselect"
+short = "Quicksort"
+focus = "Partitioning powers both quicksort and quickselect; sorting unlocks other algorithms."
+file = "ch13/quicksort.go"
+
+[[chapters]]
+n = 14
+title = "Linked lists, singly and doubly"
+short = "Linked lists"
+focus = "Mirror Chapter 1 on a linked list: the same operations with the opposite costs."
+file = "ch14/linkedlists.go"
+
+[[chapters]]
+n = 15
+title = "Binary search trees"
+short = "Binary search trees"
+focus = "Search, insert, delete and traverse in O(log N) when balanced."
+file = "ch15/bst.go"
+
+[[chapters]]
+n = 16
+title = "Heaps and priority queues"
+short = "Heaps"
+focus = "An array-backed heap gives O(log N) priority queues."
+file = "ch16/heaps.go"
+
+[[chapters]]
+n = 17
+title = "Tries for prefix search"
+short = "Tries"
+focus = "Character-by-character trees for prefix search and autocomplete."
+file = "ch17/tries.go"
+
+[[chapters]]
+n = 18
+title = "Graphs: traversal and cheapest paths"
+short = "Graphs"
+focus = "Model connections, traverse depth first and breadth first, and find the cheapest path."
+file = "ch18/graphs.go"
+
+[[chapters]]
+n = 19
+title = "Counting memory: space complexity"
+short = "Space complexity"
+focus = "Count memory as carefully as steps, including the call stack."
+file = "ch19/space.go"
+
+[[chapters]]
+n = 20
+title = "Making code faster: lookups, patterns and greed"
+short = "Optimization techniques"
+focus = "Magical lookups, pattern recognition, greedy choices and changing the data structure."
+file = "ch20/optimization.go"
+
+[[chapters]]
+n = 21
+title = "Mergesort and stable sorting"
+short = "Mergesort"
+focus = "Merge, then mergesort four ways, and see why stability and guaranteed O(N log N) matter."
+file = "ch21/mergesort.go"
+
+[[chapters]]
+n = 22
+title = "Measuring real speed"
+short = "Benchmarking"
+focus = "Measure real speed with perf_counter and timeit, and avoid the gotchas that fake a result."
+file = "ch22/bench.go"
+
+[[chapters]]
+n = 23
+title = "Randomness as a tool"
+short = "Randomness"
+focus = "Random pivots, fair shuffles, seeded generators and randomness for balancing load."
+file = "ch23/random.go"
+
+[[chapters]]
+n = 24
+title = "Caches and eviction policies"
+short = "Caching"
+focus = "Build LRU caches two ways, compare eviction policies, and write cache-friendly loops."
+file = "ch24/cache.go"
+
+[[chapters]]
+n = 25
+title = "Red-black trees"
+short = "Red-black trees"
+focus = "Rotations and recolouring that keep a BST's height within 2 log N."
+file = "ch25/redblack.go"
+
+[[chapters]]
+n = 26
+title = "Treaps: balance from random priorities"
+short = "Treaps"
+focus = "A BST by key and a heap by random priority: balance without bookkeeping."
+file = "ch26/treap.go"
+
+[[chapters]]
+n = 27
+title = "B-trees and counting I/Os"
+short = "B-trees"
+focus = "Count I/Os instead of steps, then build the B-tree that databases index with."
+file = "ch27/btree.go"
+
+[[chapters]]
+n = 28
+title = "Sorting data larger than memory"
+short = "External sort"
+focus = "Sort data larger than memory with sorted runs and wide merges."
+file = "ch28/extsort.go"
+
+[[chapters]]
+n = 29
+title = "Monte Carlo and Las Vegas algorithms"
+short = "Monte Carlo"
+focus = "Trade a small, known chance of error for speed, from estimating pi to primality tests."
+file = "ch29/montecarlo.go"
+
+[[chapters]]
+n = 30
+title = "Hash functions chosen at random"
+short = "Hashing"
+focus = "Why fixed hash functions break on unlucky keys, and how random choice fixes them."
+file = "ch30/hashing.go"
+
+[[chapters]]
+n = 31
+title = "Substring search with rolling hashes"
+short = "Rabin-Karp"
+focus = "Rolling hashes turn substring search into a sliding window."
+file = "ch31/rabinkarp.go"
+
+[[chapters]]
+n = 32
+title = "Bit vectors: one bit per member"
+short = "Bit vectors"
+focus = "Store sets in single bits with masks, and measure the memory you save."
+file = "ch32/bitvector.go"
+
+[[chapters]]
+n = 33
+title = "Bloom filters"
+short = "Bloom filters"
+focus = "Answer \"definitely not\" or \"probably yes\" in a few bits per item."
+file = "ch33/bloom.go"

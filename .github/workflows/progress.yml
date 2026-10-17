@@ -1,0 +1,38 @@
+name: progress
+
+# Runs every test on each push and commits PROGRESS.md and the README badge.
+# It never fails because a test fails: an unsolved exercise is simply not ticked.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: progress
+  cancel-in-progress: true
+
+jobs:
+  progress:
+    # The bloomcode template itself has no progress to record; copies made from it do.
+    if: ${{ !github.event.repository.is_template }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run the tests and update PROGRESS.md
+        run: python tools/progress.py
+      - name: Commit the result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add PROGRESS.md README.md
+          git diff --cached --quiet || { git commit -m "Update progress" && git push; }
