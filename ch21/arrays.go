@@ -1,7 +1,9 @@
 // Package ch21: Arrays and dynamic arrays.
 package ch21
 
-import "errors"
+import (
+	"errors"
+)
 
 // ==== EX 21.1 | Fixed-capacity Array skeleton | Core
 // PROMPT: Create `type Array struct` with a fixed-size `data []int`, a `Length` and a `Steps` counter, plus `NewArray(capacity int) *Array` and methods `IsEmpty()`, `IsFull()`, `ToSlice()` and `ResetSteps()`. Declare the sentinel errors `ErrIndex`, `ErrFull` and `ErrEmpty` for the next exercises.
@@ -239,6 +241,76 @@ func NewDynamicArray(capacity int) *DynamicArray { panic("todo") }
 func (d *DynamicArray) Cap() int { panic("todo") }
 
 func (d *DynamicArray) InsertAtEnd(value int) error {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 21.20 | Majority value by voting | Practice
+// PROMPT: A value fills more than half of `nums`. Write `Majority(nums []int) int` in one pass with O(1) extra space: keep a candidate and a count; a matching value adds a vote, a different one removes a vote, and an empty count picks the next value as the candidate.
+// EXAMPLE: `[3 1 3 3 2 3]` -> `3`
+// BIGO: O(N) time, O(1) space: each vote cancels against a different value, and the majority outlasts every cancellation.
+func Majority(nums []int) int {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 21.21 | Products of everything but self | Core
+// PROMPT: Write `ProductsExceptSelf(nums []int) []int` returning, for each index, the product of every other value, without using division (so zeros need no special case).
+// EXAMPLE: `[2 3 4 5]` -> `[60 40 30 24]`
+// BIGO: O(N) time: one pass left to right for the product before each index, one pass right to left for the product after it.
+func ProductsExceptSelf(nums []int) []int {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 21.22 | Longest mountain run | Core
+// PROMPT: A mountain is a run that strictly rises and then strictly falls, with at least one step each way. Write `LongestMountain(nums []int) int` returning the length of the longest mountain, or 0 if there is none. Find each tip, then walk down both sides.
+// EXAMPLE: `[1 3 5 4 2 2 6 1]` -> `5`
+// BIGO: O(N): each tip is found once, and the climbs and descents around different tips never overlap by more than one value.
+func LongestMountain(nums []int) int {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 21.23 | Smallest amount the coins cannot make | Practice
+// PROMPT: Each coin in `coins` (positive values, repeats allowed) can be used at most once. Write `SmallestUnmakeable(coins []int) int` returning the smallest positive amount that no selection of coins adds up to. Sort a copy, then track the largest amount `reach` that every smaller amount can be made up to.
+// EXAMPLE: `[2 1 6]` -> `4`; `[1 1 3]` -> `6`
+// BIGO: O(N log N) for the sort, then one pass: if every amount up to `reach` can be paid and the next coin is at most reach + 1, every amount up to reach + coin can be paid.
+func SmallestUnmakeable(coins []int) int {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 21.24 | Lowest missing positive, in place | Stretch
+// PROMPT: Write `LowestMissingPositive(nums []int) int` returning the smallest positive integer not in `nums`, in O(N) time with no extra slice. Rearrange in place so that value `v` (when 1 <= v <= N) sits at index `v - 1`; then the first index whose value is wrong gives the answer.
+// EXAMPLE: `[4 -2 1 9 2]` -> `3`; `[2 3]` -> `1`
+// BIGO: O(N) time and O(1) extra space: each swap puts one value in its home slot for good, so there are at most N swaps.
+func LowestMissingPositive(nums []int) int {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 21.25 | Missing numbers in 1..n | Core
+// PROMPT: `nums` holds distinct values from 1 to `n`. Write `MissingFromRange(nums []int, n int) []int` returning the values in 1..n that are absent, in increasing order, using a slice of `n + 1` marks rather than sorting.
+// EXAMPLE: `[4 1 6], 6` -> `[2 3 5]`
+// BIGO: O(N) time and O(N) space: one pass marks what is present, one pass collects what is not.
+func MissingFromRange(nums []int, n int) []int {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 21.26 | First repeat, using the array as its own table | Practice
+// PROMPT: Every value in `nums` is between 1 and `len(nums)`. Write `FirstRepeatInPlace(nums []int) int` returning the value whose second appearance comes first, or -1, using no extra structure: when you meet `v`, flip `nums[v-1]` negative; finding it already negative means `v` is a repeat. Restore the signs before returning.
+// EXAMPLE: `[3 1 4 4 1]` -> `4`; `[1 2 3]` -> `-1`
+// BIGO: O(N) time, O(1) extra space: the sign of `nums[v - 1]` records whether `v` has been seen.
+func FirstRepeatInPlace(nums []int) int {
 	panic("todo")
 }
 

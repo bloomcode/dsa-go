@@ -81,3 +81,46 @@ func TestEx41_9(t *testing.T) {
 func TestEx41_10(t *testing.T) {
 	check.Eq(t, fmt.Sprint(Invert(map[string]int{"fries": 2, "soda": 2, "burger": 5})), "map[2:[fries soda] 5:[burger]]")
 }
+
+func TestEx41_11(t *testing.T) {
+	got := []int{LongestConsecutive([]int{10, 4, 20, 1, 3, 2, 11}), LongestConsecutive(nil), LongestConsecutive([]int{5, 5, 5}), LongestConsecutive([]int{0, -1, 1, 9, 8})}
+	check.Eq(t, got, []int{4, 0, 1, 3})
+}
+
+func TestEx41_12(t *testing.T) {
+	got := []bool{HasZeroSumRun([]int{4, 2, -3, 1, 6}), HasZeroSumRun([]int{4, 2, 1}), HasZeroSumRun([]int{0}), HasZeroSumRun(nil), HasZeroSumRun([]int{1, -1}), HasZeroSumRun([]int{3, 5, -8, 2}), HasZeroSumRun([]int{-2, 5})}
+	check.Eq(t, got, []bool{true, false, true, false, true, true, false})
+}
+
+func TestEx41_13(t *testing.T) {
+	got := []int{CountSumRuns([]int{1, 2, 3, -2, 2}, 3), CountSumRuns([]int{1, 1, 1}, 2), CountSumRuns(nil, 0), CountSumRuns([]int{0, 0}, 0), CountSumRuns([]int{5}, -5), CountSumRuns([]int{2, -2, 2}, 2)}
+	check.Eq(t, got, []int{4, 2, 0, 3, 0, 3})
+}
+
+func TestEx41_14(t *testing.T) {
+	check.Eq(t, SymmetricPairs([][2]int{{1, 2}, {3, 4}, {5, 6}, {4, 3}, {2, 1}}), [][2]int{{3, 4}, {1, 2}})
+	check.Eq(t, SymmetricPairs(nil), [][2]int{})
+	check.Eq(t, SymmetricPairs([][2]int{{1, 2}, {2, 3}}), [][2]int{})
+	check.Eq(t, SymmetricPairs([][2]int{{7, 8}, {8, 7}, {9, 7}, {7, 9}}), [][2]int{{7, 8}, {9, 7}})
+}
+
+func TestEx41_15(t *testing.T) {
+	check.Eq(t, TraceJourney([][2]string{{"MAA", "BOM"}, {"DEL", "MAA"}, {"BOM", "GOI"}}), []string{"DEL", "MAA", "BOM", "GOI"})
+	check.Eq(t, TraceJourney(nil), []string{})
+	check.Eq(t, TraceJourney([][2]string{{"A", "B"}}), []string{"A", "B"})
+	check.Eq(t, TraceJourney([][2]string{{"C", "D"}, {"B", "C"}, {"D", "E"}, {"A", "B"}}), []string{"A", "B", "C", "D", "E"})
+}
+
+func TestEx41_16(t *testing.T) {
+	got := []bool{Disjoint([]int{1, 5, 9}, []int{2, 6}), Disjoint([]int{1, 5}, []int{5}), Disjoint(nil, []int{1}), Disjoint(nil, nil), Disjoint([]int{3, 3}, []int{4, 3})}
+	check.Eq(t, got, []bool{true, false, true, true, false})
+}
+
+func TestEx41_17(t *testing.T) {
+	got := []int{
+		MostOnALine([][2]int{{0, 0}, {1, 1}, {2, 2}, {3, 1}, {0, 3}}), MostOnALine(nil), MostOnALine([][2]int{{1, 1}}),
+		MostOnALine([][2]int{{1, 1}, {1, 1}, {2, 3}}), MostOnALine([][2]int{{2, 0}, {2, 5}, {2, -1}, {3, 3}}),
+		MostOnALine([][2]int{{0, 0}, {2, 1}, {4, 2}, {6, 3}, {1, 0}}), MostOnALine([][2]int{{0, 0}, {-2, 1}, {2, -1}}),
+	}
+	check.Eq(t, got, []int{3, 0, 1, 3, 3, 4, 3})
+}

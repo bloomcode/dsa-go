@@ -84,3 +84,58 @@ func TestEx22_9(t *testing.T) {
 func TestEx22_10(t *testing.T) {
 	check.Eq(t, []int{IntSqrt(27), IntSqrt(36), IntSqrt(0), IntSqrt(1), IntSqrt(math.MaxInt64)}, []int{5, 6, 0, 1, 3037000499})
 }
+
+func TestEx22_11(t *testing.T) {
+	nums := []int{15, 18, 22, 3, 7, 9}
+	for i, x := range nums {
+		check.Eq(t, SearchRotated(nums, x), i)
+	}
+	check.Eq(t, []int{SearchRotated(nums, 10), SearchRotated(nums, 1), SearchRotated(nil, 4)}, []int{-1, -1, -1})
+	check.Eq(t, []int{SearchRotated([]int{5}, 5), SearchRotated([]int{1, 2, 3}, 3), SearchRotated([]int{3, 1}, 1)}, []int{0, 2, 1})
+}
+
+func TestEx22_12(t *testing.T) {
+	check.Eq(t, FindPeak([]int{1, 3, 2, 5, 4}), 3)
+	for _, nums := range [][]int{{7}, {1, 2, 3, 4}, {4, 3, 2, 1}, {2, 9, 1, 8, 0, 7, 6}, {5, 1}} {
+		i := FindPeak(nums)
+		check.True(t, (i == 0 || nums[i-1] < nums[i]) && (i == len(nums)-1 || nums[i+1] < nums[i]), "index is a peak")
+	}
+}
+
+func TestEx22_13(t *testing.T) {
+	loads := []int{4, 9, 3, 6, 2, 8}
+	got := []int{SmallestMaxLoad(loads, 3), SmallestMaxLoad(loads, 1), SmallestMaxLoad(loads, 6), SmallestMaxLoad([]int{5, 5, 5, 5}, 2), SmallestMaxLoad([]int{7}, 3)}
+	check.Eq(t, got, []int{13, 32, 9, 10, 7})
+}
+
+func TestEx22_14(t *testing.T) {
+	got := []int{FixedPoint([]int{-4, -1, 2, 5, 9}), FixedPoint([]int{1, 2, 3}), FixedPoint([]int{0, 1, 2}), FixedPoint([]int{-3, -1, 1, 3, 4}), FixedPoint(nil), FixedPoint([]int{-5, 0, 7})}
+	check.Eq(t, got, []int{2, -1, 0, 3, -1, -1})
+}
+
+func TestEx22_15(t *testing.T) {
+	got := []float64{
+		MedianOfTwo([]int{1, 4, 9}, []int{2, 3}), MedianOfTwo([]int{1, 4}, []int{2, 3}), MedianOfTwo(nil, []int{5}),
+		MedianOfTwo([]int{1, 2}, []int{3, 4, 5, 6}), MedianOfTwo([]int{7}, []int{1, 2, 3}), MedianOfTwo([]int{10, 20, 30}, nil),
+		MedianOfTwo([]int{1, 1}, []int{1, 1}),
+	}
+	check.Eq(t, got, []float64{3, 2.5, 5, 3.5, 2.5, 20, 1})
+}
+
+func TestEx22_16(t *testing.T) {
+	p := NewWeightedPicker([]int{3, 1, 2})
+	check.Eq(t, p.Total(), 6)
+	picks := []int{}
+	for r := range 6 {
+		picks = append(picks, p.Pick(r))
+	}
+	check.Eq(t, picks, []int{0, 0, 0, 1, 2, 2})
+	weights := []int{5, 1, 4, 2}
+	p = NewWeightedPicker(weights)
+	counts := make([]int, len(weights))
+	for r := range p.Total() {
+		counts[p.Pick(r)]++
+	}
+	check.Eq(t, counts, weights)
+	check.Eq(t, NewWeightedPicker([]int{9}).Pick(8), 0)
+}

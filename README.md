@@ -2,7 +2,7 @@
 
 <!-- progress:start -->[![progress](https://img.shields.io/badge/progress-0%2F282-lightgrey)](PROGRESS.md)<!-- progress:end -->
 
-282 exercises in 26 chapters, for engineers preparing for coding interviews and contests. Every exercise is a stub that calls `panic("todo")` and has its own test. Write the code, make the test pass, move on.
+445 exercises in 34 chapters, for engineers preparing for coding interviews and contests. Every exercise is a stub that calls `panic("todo")` and has its own test. Write the code, make the test pass, move on.
 
 The workbook explains each exercise and the answer key has a reference solution: [workbook](https://bloomcode.github.io/dsa/go/workbook.html) · [answer key](https://bloomcode.github.io/dsa/go/answer-key.html) · [concept guide](https://bloomcode.github.io/dsa/guide/).
 
@@ -59,10 +59,10 @@ If a file you have worked on conflicts, keep your version of your code (`git che
 | Part | Chapters |
 | --- | --- |
 | Cost and measurement | 11 Counting steps · 12 Memory · 13 Timing |
-| Sequences | 21 Arrays · 22 Sorted search · 23 Linked lists · 24 Stacks and queues |
-| Sorting | 31 Simple sorts · 32 Divide and conquer |
+| Sequences | 21 Arrays · 22 Sorted search · 23 Linked lists · 24 Stacks and queues · 25 Strings · 26 Two pointers · 27 Grids |
+| Sorting | 31 Simple sorts · 32 Divide and conquer · 33 Linear sorts |
 | Hashing | 41 Hash tables · 42 Hash functions · 43 Text search |
-| Trees | 51 Search trees · 52 Heaps · 53 Tries · 54 Balanced trees · 55 B-trees |
-| Graphs | 61 Graph traversal · 62 Paths and order |
-| Algorithm design | 71 Recursion · 72 Dynamic programming · 73 Greedy and transforms · 74 Randomized |
+| Trees | 51 Search trees · 52 Heaps · 53 Tries · 54 Balanced trees · 55 B-trees · 56 Binary trees |
+| Graphs | 61 Graph traversal · 62 Paths and order · 63 Union-find · 64 Implicit graphs |
+| Algorithm design | 71 Recursion · 72 Dynamic programming · 73 Greedy and transforms · 74 Randomized · 75 Backtracking |
 | Systems and scale | 81 Caching · 82 External sort · 83 Compact sets |

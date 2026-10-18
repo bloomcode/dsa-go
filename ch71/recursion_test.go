@@ -105,3 +105,8 @@ func TestEx71_18(t *testing.T) {
 	check.Eq(t, len(all), 16)
 	check.Eq(t, all[15], []int{1, 2, 3, 4})
 }
+
+func TestEx71_19(t *testing.T) {
+	got := []int{LastStanding(5, 2), LastStanding(1, 3), LastStanding(7, 3), LastStanding(6, 1), LastStanding(10, 2), LastStanding(2, 2)}
+	check.Eq(t, got, []int{3, 1, 4, 6, 5, 1})
+}

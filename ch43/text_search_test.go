@@ -75,3 +75,20 @@ func TestEx43_7(t *testing.T) {
 func TestEx43_8(t *testing.T) {
 	check.Eq(t, []string{LongestRepeat("banana"), LongestRepeat("abcd"), LongestRepeat("abcxyzabcq")}, []string{"ana", "", "abc"})
 }
+
+func TestEx43_9(t *testing.T) {
+	check.Eq(t, PrefixTable("abacabab"), []int{0, 0, 1, 0, 1, 2, 3, 2})
+	check.Eq(t, PrefixTable("aaaa"), []int{0, 1, 2, 3})
+	check.Eq(t, PrefixTable(""), []int{})
+	check.Eq(t, PrefixTable("abcd"), []int{0, 0, 0, 0})
+	check.Eq(t, PrefixTable("aabaaab"), []int{0, 1, 0, 1, 2, 2, 3})
+}
+
+func TestEx43_10(t *testing.T) {
+	check.Eq(t, PrefixSearch("abababca", "abab"), []int{0, 2})
+	check.Eq(t, PrefixSearch("aaaa", "aa"), []int{0, 1, 2})
+	check.Eq(t, PrefixSearch("abc", "d"), []int{})
+	check.Eq(t, PrefixSearch("ab", "abc"), []int{})
+	check.Eq(t, PrefixSearch("xabcabcx", "abcx"), []int{4})
+	check.Eq(t, PrefixSearch("", "a"), []int{})
+}

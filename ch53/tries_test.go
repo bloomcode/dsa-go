@@ -71,3 +71,57 @@ func TestEx53_9(t *testing.T) {
 	check.True(t, !tr.Delete("sun") && !tr.Delete("pi") && tr.Delete("pin"), "delete more")
 	check.Eq(t, len(tr.Root.Children), 0)
 }
+
+func TestEx53_10(t *testing.T) {
+	check.Eq(t, PrefixCounts([]string{"car", "card", "care", "dog"}, []string{"car", "ca", "d", "x"}), []int{3, 3, 1, 0})
+	check.Eq(t, PrefixCounts([]string{"a", "a", "ab"}, []string{"a", "ab", "abc", ""}), []int{3, 1, 0, 3})
+	check.Eq(t, PrefixCounts(nil, []string{"a"}), []int{0})
+}
+
+func TestEx53_11(t *testing.T) {
+	check.Eq(t, TrieSort([]string{"pear", "apple", "pea", "app"}), []string{"app", "apple", "pea", "pear"})
+	check.Eq(t, TrieSort(nil), []string{})
+	check.Eq(t, TrieSort([]string{"b", "a", "b"}), []string{"a", "b", "b"})
+	check.Eq(t, TrieSort([]string{"ba", "b", "abc", "ab"}), []string{"ab", "abc", "b", "ba"})
+}
+
+func TestEx53_12(t *testing.T) {
+	words := []string{"bad", "bed", "bid", "bud", "bead", "bad"}
+	check.Eq(t, WildcardMatches(words, "b.d"), []string{"bad", "bed", "bid", "bud"})
+	check.Eq(t, WildcardMatches(words, ".."), []string{})
+	check.Eq(t, WildcardMatches(words, "b..d"), []string{"bead"})
+	check.Eq(t, WildcardMatches(words, "bad"), []string{"bad"})
+	check.Eq(t, WildcardMatches(words, ".e."), []string{"bed"})
+}
+
+func TestEx53_13(t *testing.T) {
+	check.Eq(t, SubstringChecks("banana", []string{"nan", "ana", "nab", ""}), []bool{true, true, false, true})
+	check.Eq(t, SubstringChecks("banana", []string{"banana", "bananas", "a"}), []bool{true, false, true})
+	check.Eq(t, SubstringChecks("", []string{""}), []bool{true})
+	check.Eq(t, SubstringChecks("", []string{"a"}), []bool{false})
+}
+
+func TestEx53_14(t *testing.T) {
+	check.Eq(t, ShortestUniquePrefixes([]string{"zebra", "dog", "duck", "dove"}), []string{"z", "dog", "du", "dov"})
+	check.Eq(t, ShortestUniquePrefixes([]string{"a", "b"}), []string{"a", "b"})
+	check.Eq(t, ShortestUniquePrefixes([]string{"abc"}), []string{"a"})
+	check.Eq(t, ShortestUniquePrefixes([]string{"ab", "ac", "bd"}), []string{"ab", "ac", "b"})
+	check.Eq(t, ShortestUniquePrefixes(nil), []string{})
+}
+
+func TestEx53_15(t *testing.T) {
+	words := []string{"good", "home", "gone", "hood", "hoof", "in"}
+	check.Eq(t, KeypadWords("4663", words), []string{"gone", "good", "home", "hood", "hoof"})
+	check.Eq(t, KeypadWords("46", words), []string{"in"})
+	check.Eq(t, KeypadWords("2", []string{"a", "b", "ab"}), []string{"a", "b"})
+	check.Eq(t, KeypadWords("", []string{"x"}), []string{})
+	check.Eq(t, KeypadWords("9", words), []string{})
+}
+
+func TestEx53_16(t *testing.T) {
+	words := []string{"car", "cat", "core", "tea", "rat", "bin", "rob", "cab", "tin", "ore", "rare"}
+	check.Eq(t, BoardWords([]string{"cat", "ore", "bin"}, words), []string{"bin", "car", "cat", "core", "ore", "rat", "rob", "tea"})
+	check.Eq(t, BoardWords([]string{"aa"}, []string{"aaa", "aa", "a"}), []string{"a", "aa"})
+	check.Eq(t, len(BoardWords(nil, []string{"a"})), 0)
+	check.Eq(t, BoardWords([]string{"ab", "cd"}, []string{"abdc", "acdb", "adcb", "bad", "abca"}), []string{"abdc", "acdb", "adcb", "bad"})
+}

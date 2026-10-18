@@ -144,3 +144,55 @@ func MergeKSorted(lists [][]int) []int {
 }
 
 // ==== END
+
+// ==== EX 52.9 | Running median | Practice
+// PROMPT: Build `type RunningMedian struct` with `Add(x int)` and `Median() float64` (at least one value has been added). Keep the lower half in a max-heap and the upper half in a min-heap (`container/heap`), rebalancing so the lower half has the same size or one more.
+// EXAMPLE: add 5 -> `5.0`; add 15 -> `10.0`; add 1 -> `5.0`; add 3 -> `4.0`
+// BIGO: O(log N) per `add`, O(1) per `median`, O(N) space: a max-heap holds the lower half and a min-heap the upper half, and their tops straddle the median.
+type halfHeap struct {
+	data []int
+	max  bool
+}
+
+func (h halfHeap) Len() int { panic("todo") }
+func (h halfHeap) Less(i, j int) bool {
+	panic("todo")
+}
+func (h halfHeap) Swap(i, j int) { panic("todo") }
+func (h *halfHeap) Push(x any)   { panic("todo") }
+func (h *halfHeap) Pop() any {
+	panic("todo")
+}
+
+type RunningMedian struct{ low, high halfHeap }
+
+func (m *RunningMedian) Add(x int) {
+	panic("todo")
+}
+
+func (m *RunningMedian) Median() float64 {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 52.10 | Sort a nearly sorted array with a heap | Practice
+// PROMPT: Every value in `nums` is at most `k` positions from where it belongs in sorted order. Write `SortNearlySorted(nums []int, k int) []int` that returns a new sorted slice in O(N log K): keep a min-heap (`container/heap`) of the next `k + 1` values and repeatedly move its smallest to the output.
+// EXAMPLE: `[3 1 2 6 4 5 9 7 8], 2` -> `[1 2 3 4 5 6 7 8 9]`
+// BIGO: O(N log K) time, O(K) space: the smallest remaining value is always among the next K + 1, so a heap of that size can hand it out.
+// NOTE: Compare 31.16, which handles the same input with insertion sort in O(N * K).
+type windowHeap []int
+
+func (h windowHeap) Len() int           { panic("todo") }
+func (h windowHeap) Less(i, j int) bool { panic("todo") }
+func (h windowHeap) Swap(i, j int)      { panic("todo") }
+func (h *windowHeap) Push(x any)        { panic("todo") }
+func (h *windowHeap) Pop() any {
+	panic("todo")
+}
+
+func SortNearlySorted(nums []int, k int) []int {
+	panic("todo")
+}
+
+// ==== END
