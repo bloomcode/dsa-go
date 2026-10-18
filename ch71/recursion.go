@@ -187,3 +187,13 @@ func Subsets(items []int) [][]int {
 }
 
 // ==== END
+
+// ==== EX 71.19 | Last one standing in a circle | Practice
+// PROMPT: `n` people sit in a circle in seats `1` to `n`. Counting from seat 1, every `k`-th person still seated leaves, and counting restarts from the next one. Write `LastStanding(n, k int) int` that returns the seat of the last person left. Recurse on `n - 1`: after one person leaves, the survivor's position in the smaller circle shifts by `k`.
+// EXAMPLE: `5, 2` -> `3` (seats 2, 4, 1, 5 leave in that order)
+// BIGO: O(N) time and O(N) stack: each call removes one person and renumbers the circle so the next count starts at 0.
+func LastStanding(n, k int) int {
+	panic("todo")
+}
+
+// ==== END

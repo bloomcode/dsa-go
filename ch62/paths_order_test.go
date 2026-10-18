@@ -1,6 +1,7 @@
 package ch62
 
 import (
+	"math"
 	"testing"
 
 	"dsa/internal/check"
@@ -35,4 +36,38 @@ func TestEx62_3(t *testing.T) {
 		check.Eq(t, TopologicalOrder(deps), []string{"wake", "shower", "coffee", "dress"})
 	}
 	check.True(t, TopologicalOrder(map[string][]string{"a": {"b"}, "b": {"a"}}) == nil, "cycle")
+}
+
+func TestEx62_4(t *testing.T) {
+	inf := math.MaxInt
+	dist, ok := BellmanFord(4, [][3]int{{0, 1, 4}, {0, 2, 1}, {2, 1, -2}, {1, 3, 1}}, 0)
+	check.Eq(t, dist, []int{0, -1, 1, 0})
+	check.True(t, ok, "no negative cycle")
+	dist, _ = BellmanFord(3, [][3]int{{0, 1, 5}}, 0)
+	check.Eq(t, dist, []int{0, 5, inf})
+	dist, _ = BellmanFord(1, nil, 0)
+	check.Eq(t, dist, []int{0})
+	_, ok = BellmanFord(3, [][3]int{{0, 1, 1}, {1, 2, -1}, {2, 1, -1}}, 0)
+	check.True(t, !ok, "negative cycle")
+	dist, ok = BellmanFord(3, [][3]int{{1, 2, -1}, {2, 1, -1}}, 0)
+	check.Eq(t, dist, []int{0, inf, inf})
+	check.True(t, ok, "unreachable cycle does not count")
+}
+
+func TestEx62_5(t *testing.T) {
+	got := []bool{
+		HasProfitableLoop([][]float64{{1, 0.9, 0.8}, {1.2, 1, 0.7}, {1.3, 1.4, 1}}), HasProfitableLoop([][]float64{{1, 0.5}, {1.9, 1}}),
+		HasProfitableLoop([][]float64{{1, 2}, {0.5, 1}}), HasProfitableLoop([][]float64{{1}}),
+		HasProfitableLoop([][]float64{{1, 2, 0.1}, {0.4, 1, 3}, {0.2, 0.1, 1}}),
+	}
+	check.Eq(t, got, []bool{true, false, false, false, true})
+}
+
+func TestEx62_6(t *testing.T) {
+	grid := []string{"....#", ".##.#", "....."}
+	got := []int{
+		GridPathLength(grid, [2]int{0, 0}, [2]int{2, 4}), GridPathLength(grid, [2]int{0, 0}, [2]int{0, 0}), GridPathLength(grid, [2]int{0, 3}, [2]int{2, 4}),
+		GridPathLength([]string{".#.", ".#.", "..."}, [2]int{0, 0}, [2]int{0, 2}), GridPathLength([]string{".#", "#."}, [2]int{0, 0}, [2]int{1, 1}),
+	}
+	check.Eq(t, got, []int{6, 0, 3, 6, -1})
 }

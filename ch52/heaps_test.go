@@ -85,3 +85,34 @@ func TestEx52_8(t *testing.T) {
 	check.Eq(t, MergeKSorted([][]int{{1, 4, 7}, {2, 5}, {0, 9}}), []int{0, 1, 2, 4, 5, 7, 9})
 	check.Eq(t, MergeKSorted([][]int{{}, {3}}), []int{3})
 }
+
+func TestEx52_9(t *testing.T) {
+	var m RunningMedian
+	got := []float64{}
+	for _, x := range []int{5, 15, 1, 3} {
+		m.Add(x)
+		got = append(got, m.Median())
+	}
+	check.Eq(t, got, []float64{5, 10, 5, 4})
+	stream := []int{8, -2, 7, 7, 0, 11, 3, 3, -5, 20}
+	var m2 RunningMedian
+	for n := 1; n <= len(stream); n++ {
+		m2.Add(stream[n-1])
+		s := slices.Clone(stream[:n])
+		slices.Sort(s)
+		want := float64(s[n/2])
+		if n%2 == 0 {
+			want = float64(s[n/2-1]+s[n/2]) / 2
+		}
+		check.Eq(t, m2.Median(), want)
+	}
+}
+
+func TestEx52_10(t *testing.T) {
+	check.Eq(t, SortNearlySorted([]int{3, 1, 2, 6, 4, 5, 9, 7, 8}, 2), []int{1, 2, 3, 4, 5, 6, 7, 8, 9})
+	check.Eq(t, SortNearlySorted([]int{}, 3), []int{})
+	check.Eq(t, SortNearlySorted([]int{2, 1, 4, 3}, 1), []int{1, 2, 3, 4})
+	check.Eq(t, SortNearlySorted([]int{1, 2, 3}, 0), []int{1, 2, 3})
+	check.Eq(t, SortNearlySorted([]int{5, 4, 3, 2, 1}, 4), []int{1, 2, 3, 4, 5})
+	check.Eq(t, SortNearlySorted([]int{2, 2, 1}, 2), []int{1, 2, 2})
+}

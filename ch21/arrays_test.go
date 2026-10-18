@@ -170,3 +170,44 @@ func TestEx21_19(t *testing.T) {
 	}
 	check.Eq(t, []any{d.Cap(), d.ToSlice()}, []any{4, []int{1, 2, 3}})
 }
+
+func TestEx21_20(t *testing.T) {
+	check.Eq(t, []int{Majority([]int{3, 1, 3, 3, 2, 3}), Majority([]int{7}), Majority([]int{2, 2, 1}), Majority([]int{1, 2, 1, 2, 1}), Majority([]int{5, 9, 9})}, []int{3, 7, 2, 1, 9})
+}
+
+func TestEx21_21(t *testing.T) {
+	check.Eq(t, ProductsExceptSelf([]int{2, 3, 4, 5}), []int{60, 40, 30, 24})
+	check.Eq(t, ProductsExceptSelf([]int{1, 0, 3}), []int{0, 3, 0})
+	check.Eq(t, ProductsExceptSelf([]int{0, 0}), []int{0, 0})
+	check.Eq(t, ProductsExceptSelf([]int{5}), []int{1})
+	check.Eq(t, ProductsExceptSelf([]int{-1, 2, -3}), []int{-6, 3, -2})
+}
+
+func TestEx21_22(t *testing.T) {
+	check.Eq(t, LongestMountain([]int{1, 3, 5, 4, 2, 2, 6, 1}), 5)
+	check.Eq(t, []int{LongestMountain([]int{1, 2, 3}), LongestMountain([]int{3, 2, 1}), LongestMountain(nil)}, []int{0, 0, 0})
+	check.Eq(t, []int{LongestMountain([]int{1, 3, 2, 4, 1}), LongestMountain([]int{1, 2, 1, 2, 3, 2, 1})}, []int{3, 5})
+}
+
+func TestEx21_23(t *testing.T) {
+	check.Eq(t, []int{SmallestUnmakeable([]int{2, 1, 6}), SmallestUnmakeable([]int{1, 1, 3})}, []int{4, 6})
+	check.Eq(t, []int{SmallestUnmakeable(nil), SmallestUnmakeable([]int{2}), SmallestUnmakeable([]int{1, 2, 4, 8})}, []int{1, 1, 16})
+}
+
+func TestEx21_24(t *testing.T) {
+	check.Eq(t, []int{LowestMissingPositive([]int{4, -2, 1, 9, 2}), LowestMissingPositive([]int{2, 3}), LowestMissingPositive([]int{1, 2, 3})}, []int{3, 1, 4})
+	check.Eq(t, []int{LowestMissingPositive(nil), LowestMissingPositive([]int{1, 1, 1}), LowestMissingPositive([]int{0, -5, 3, 2, 1, 5})}, []int{1, 2, 4})
+}
+
+func TestEx21_25(t *testing.T) {
+	check.Eq(t, MissingFromRange([]int{4, 1, 6}, 6), []int{2, 3, 5})
+	check.Eq(t, MissingFromRange(nil, 3), []int{1, 2, 3})
+	check.Eq(t, MissingFromRange([]int{2, 1}, 2), []int{})
+}
+
+func TestEx21_26(t *testing.T) {
+	data := []int{3, 1, 4, 4, 1}
+	check.Eq(t, FirstRepeatInPlace(data), 4)
+	check.Eq(t, data, []int{3, 1, 4, 4, 1})
+	check.Eq(t, []int{FirstRepeatInPlace([]int{1, 2, 3}), FirstRepeatInPlace([]int{2, 2}), FirstRepeatInPlace([]int{1, 3, 3, 1})}, []int{-1, 2, 3})
+}

@@ -54,3 +54,37 @@ func TestEx73_8(t *testing.T) {
 func TestEx73_9(t *testing.T) {
 	check.Eq(t, []int{LongestUniqueRun("abcadbe"), LongestUniqueRun("aaaa"), LongestUniqueRun(""), LongestUniqueRun("abba"), LongestUniqueRun("tmmzuxt")}, []int{5, 1, 0, 2, 5})
 }
+
+func TestEx73_10(t *testing.T) {
+	check.Eq(t, []int{LeastTotalWaiting([]int{3, 2, 1, 2, 6}), LeastTotalWaiting(nil), LeastTotalWaiting([]int{5}), LeastTotalWaiting([]int{4, 1}), LeastTotalWaiting([]int{2, 2, 2})}, []int{17, 0, 0, 1, 6})
+}
+
+func TestEx73_11(t *testing.T) {
+	check.Eq(t, []int{PairFinishTime([]int{5, 2, 1, 6, 4, 4}), PairFinishTime([]int{1, 2}), PairFinishTime([]int{3, 3, 3, 3}), PairFinishTime([]int{1, 9, 2, 8})}, []int{8, 3, 6, 10})
+}
+
+func TestEx73_12(t *testing.T) {
+	check.Eq(t, []bool{CanTakePhoto([]int{5, 8, 1, 3, 4}, []int{6, 9, 2, 4, 5}), CanTakePhoto([]int{1, 2}, []int{1, 3}), CanTakePhoto([]int{3}, []int{3}), CanTakePhoto([]int{6, 5}, []int{4, 4}), CanTakePhoto([]int{1, 9}, []int{5, 5})}, []bool{true, false, false, true, false})
+}
+
+func TestEx73_13(t *testing.T) {
+	check.Eq(t, []int{TandemTotal([]int{5, 5, 3, 9, 2}, []int{3, 6, 7, 2, 1}, true), TandemTotal([]int{5, 5, 3, 9, 2}, []int{3, 6, 7, 2, 1}, false), TandemTotal([]int{1}, []int{1}, true), TandemTotal([]int{1, 4}, []int{5, 2}, true), TandemTotal([]int{1, 4}, []int{5, 2}, false)}, []int{32, 25, 1, 9, 7})
+}
+
+func TestEx73_14(t *testing.T) {
+	check.Eq(t, []int{LoopStart([]int{1, 5, 3, 3, 1}, []int{3, 2, 4, 1, 1}), LoopStart([]int{2, 2}, []int{3, 3}), LoopStart([]int{3}, []int{2}), LoopStart([]int{1, 2, 3}, []int{2, 3, 1})}, []int{1, -1, 0, 2})
+}
+
+func TestEx73_15(t *testing.T) {
+	check.Eq(t, []int{FewestRewards([]int{4, 2, 6, 3, 3, 1}), FewestRewards(nil), FewestRewards([]int{5}), FewestRewards([]int{1, 2, 3}), FewestRewards([]int{3, 3, 3}), FewestRewards([]int{1, 3, 2}), FewestRewards([]int{5, 4, 3, 2, 1})}, []int{9, 0, 1, 6, 3, 4, 15})
+}
+
+func TestEx73_16(t *testing.T) {
+	check.Eq(t, []int{BestScheduleProfit([][2]int{{2, 50}, {1, 10}, {2, 40}, {1, 30}, {3, 20}}), BestScheduleProfit(nil), BestScheduleProfit([][2]int{{1, 5}, {1, 9}}), BestScheduleProfit([][2]int{{3, 1}, {3, 2}, {3, 3}, {3, 4}})}, []int{110, 0, 9, 9})
+}
+
+func TestEx73_17(t *testing.T) {
+	check.Eq(t, StableMatching([][]int{{0, 1, 2}, {0, 2, 1}, {1, 0, 2}}, [][]int{{1, 0, 2}, {0, 1, 2}, {0, 1, 2}}), []int{1, 0, 2})
+	check.Eq(t, StableMatching([][]int{{0}}, [][]int{{0}}), []int{0})
+	check.Eq(t, StableMatching([][]int{{0, 1}, {0, 1}}, [][]int{{1, 0}, {1, 0}}), []int{1, 0})
+}

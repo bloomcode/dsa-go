@@ -112,3 +112,100 @@ func (t *Trie) Delete(word string) bool {
 }
 
 // ==== END
+
+// WordNode is the trie node for 53.10-53.16: Next maps a letter to a child, Passes counts the words through it, Ends the words ending at it.
+type WordNode struct {
+	Next         map[byte]*WordNode
+	Passes, Ends int
+}
+
+// WordTrie builds a WordNode trie holding words, repeats counted.
+func WordTrie(words ...string) *WordNode {
+	root := &WordNode{Next: map[byte]*WordNode{}}
+	for _, word := range words {
+		node := root
+		node.Passes++
+		for i := 0; i < len(word); i++ {
+			child, ok := node.Next[word[i]]
+			if !ok {
+				child = &WordNode{Next: map[byte]*WordNode{}}
+				node.Next[word[i]] = child
+			}
+			node = child
+			node.Passes++
+		}
+		node.Ends++
+	}
+	return root
+}
+
+// ==== EX 53.10 | Count the words under each prefix | Core
+// PROMPT: Write `PrefixCounts(words, prefixes []string) []int` that returns, for each prefix, how many of `words` (repeats included) start with it. Use the `WordTrie(words...)` helper: each `WordNode` has `Next` (letter -> child), `Passes` and `Ends`. Walk each prefix down from the root and read `Passes`.
+// EXAMPLE: `["car" "card" "care" "dog"], ["car" "ca" "d" "x"]` -> `[3 3 1 0]`
+// BIGO: O(total letters) to build, then O(K) per prefix of length K: the node at the end of the prefix already counts every word passing through it.
+func PrefixCounts(words, prefixes []string) []int {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 53.11 | Sort words with a trie | Core
+// PROMPT: Write `TrieSort(words []string) []string` that returns `words` in dictionary order, repeats kept, as a non-nil slice, by walking a trie: emit a node's word `Ends` times, then visit its children in letter order. Use the `WordTrie(words...)` helper: each `WordNode` has `Next` (letter -> child), `Passes` and `Ends`.
+// EXAMPLE: `["pear" "apple" "pea" "app"]` -> `["app" "apple" "pea" "pear"]`
+// BIGO: O(total letters) plus the sort of each node's children: a pre-order walk that takes children in letter order meets the words in dictionary order.
+func TrieSort(words []string) []string {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 53.12 | Wildcard search | Practice
+// PROMPT: Write `WildcardMatches(words []string, pattern string) []string` that returns, in dictionary order and without repeats, the words matching `pattern` (a non-nil slice), where `.` matches any one letter. Walk the trie: a letter follows one child, a dot tries every child in letter order. Use the `WordTrie(words...)` helper: each `WordNode` has `Next` (letter -> child), `Passes` and `Ends`.
+// EXAMPLE: `["bad" "bed" "bid" "bud" "bead"], "b.d"` -> `["bad" "bed" "bid" "bud"]`
+// BIGO: O(26^D * K) worst case for D dots in a pattern of length K, far less in practice: each dot branches only into children that exist.
+func WildcardMatches(words []string, pattern string) []string {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 53.13 | Substring check with a suffix trie | Practice
+// PROMPT: Write `SubstringChecks(text string, queries []string) []bool` that returns, for each query, whether it occurs in `text` (the empty string always does). Put every suffix of `text` in a trie, then walk each query from the root. Use the `WordTrie(words...)` helper: each `WordNode` has `Next` (letter -> child), `Passes` and `Ends`.
+// EXAMPLE: `"banana", ["nan" "ana" "nab" ""]` -> `[true true false true]`
+// BIGO: O(N^2) time and space to build for a text of length N, then O(M) per query of length M: every substring is a prefix of some suffix.
+// NOTE: Suffix trees and suffix arrays get the build down to O(N) or O(N log N); the query idea is the same.
+func SubstringChecks(text string, queries []string) []bool {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 53.14 | Shortest unique prefixes | Practice
+// PROMPT: `words` are distinct and none is a prefix of another. Write `ShortestUniquePrefixes(words []string) []string` that returns, for each word in order, its shortest non-empty prefix that no other word starts with. Walk each word down until a node is passed by one word only. Use the `WordTrie(words...)` helper: each `WordNode` has `Next` (letter -> child), `Passes` and `Ends`.
+// EXAMPLE: `["zebra" "dog" "duck" "dove"]` -> `["z" "dog" "du" "dov"]`
+// BIGO: O(total letters) time and space: the `passes` count on each node says at once whether any other word shares the prefix so far.
+func ShortestUniquePrefixes(words []string) []string {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 53.15 | Keypad words | Practice
+// PROMPT: On a phone keypad, `2` is `abc`, `3` `def`, `4` `ghi`, `5` `jkl`, `6` `mno`, `7` `pqrs`, `8` `tuv` and `9` `wxyz`. Write `KeypadWords(digits string, words []string) []string` that returns, in dictionary order, the words from `words` whose letters type exactly `digits` (a non-nil slice). Walk the trie, trying each letter of the current digit. Use the `WordTrie(words...)` helper: each `WordNode` has `Next` (letter -> child), `Passes` and `Ends`.
+// EXAMPLE: `"4663", ["good" "home" "gone" "hood" "hoof" "in"]` -> `["gone" "good" "home" "hood" "hoof"]`
+// BIGO: O(4^K) worst case for K digits, usually far less: the trie cuts off every letter sequence that starts no word.
+func KeypadWords(digits string, words []string) []string {
+	panic("todo")
+}
+
+// ==== END
+
+// ==== EX 53.16 | Words on a letter board | Stretch
+// PROMPT: `board` holds equal-length strings. A word can be traced by starting on any cell and stepping to any of the 8 neighbouring cells, using each cell at most once. Write `BoardWords(board, words []string) []string` that returns, sorted and without repeats, the words from `words` that can be traced (a non-nil slice). Start a depth-first walk from every cell, following the trie in step with the path. Use the `WordTrie(words...)` helper: each `WordNode` has `Next` (letter -> child), `Passes` and `Ends`.
+// EXAMPLE: `["cat" "ore" "bin"]`, `["car" "cat" "core" "tea" "rat" "bin" "rob" "cab" "tin" "ore" "rare"]` -> `["bin" "car" "cat" "core" "ore" "rat" "rob" "tea"]`
+// BIGO: O(R * C * 8^L) worst case for words up to length L, in practice far less: the walk stops as soon as the path so far starts no word.
+func BoardWords(board, words []string) []string {
+	panic("todo")
+}
+
+// ==== END
