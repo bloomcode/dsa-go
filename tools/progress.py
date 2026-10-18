@@ -159,7 +159,9 @@ def write(track, exs, build_ok, passed):
         colour = "2ea44f" if done == total else ("0969da" if done else "lightgrey")
         badge = f"[![progress](https://img.shields.io/badge/progress-{done}%2F{total}-{colour})](PROGRESS.md)"
         text = readme.read_text()
-        new = re.sub(rf"{re.escape(BADGE_START)}.*?{re.escape(BADGE_END)}", f"{BADGE_START}{badge}{BADGE_END}", text, flags=re.S)
+        # The badge sits on its own line between the markers: on the same line as an HTML comment, GitHub
+        # would show it as text. This also rewrites the one-line form older copies of this file wrote.
+        new = re.sub(rf"{re.escape(BADGE_START)}.*?{re.escape(BADGE_END)}", lambda _: f"{BADGE_START}\n\n{badge}\n\n{BADGE_END}", text, flags=re.S)
         if new != text:
             readme.write_text(new)
 

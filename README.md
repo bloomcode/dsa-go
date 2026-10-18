@@ -1,6 +1,10 @@
 # Data structures and algorithms
 
-<!-- progress:start -->[![progress](https://img.shields.io/badge/progress-0%2F445-lightgrey)](PROGRESS.md)<!-- progress:end -->
+<!-- progress:start -->
+
+[![progress](https://img.shields.io/badge/progress-0%2F445-lightgrey)](PROGRESS.md)
+
+<!-- progress:end -->
 
 445 exercises in 34 chapters, for engineers preparing for coding interviews and contests. Every exercise is a stub that calls `panic("todo")` and has its own test. Write the code, make the test pass, move on.
 
