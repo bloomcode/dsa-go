@@ -9,277 +9,277 @@ exercises = 445
 [[parts]]
 n = 1
 name = "Cost and measurement"
-chapters = [11, 12, 13]
+chapters = ["1.1", "1.2", "1.3"]
 
 [[parts]]
 n = 2
 name = "Sequences"
-chapters = [21, 22, 23, 24, 25, 26, 27]
+chapters = ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7"]
 
 [[parts]]
 n = 3
 name = "Sorting"
-chapters = [31, 32, 33]
+chapters = ["3.1", "3.2", "3.3"]
 
 [[parts]]
 n = 4
 name = "Hashing"
-chapters = [41, 42, 43]
+chapters = ["4.1", "4.2", "4.3"]
 
 [[parts]]
 n = 5
 name = "Trees"
-chapters = [51, 52, 53, 54, 55, 56]
+chapters = ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"]
 
 [[parts]]
 n = 6
 name = "Graphs"
-chapters = [61, 62, 63, 64]
+chapters = ["6.1", "6.2", "6.3", "6.4"]
 
 [[parts]]
 n = 7
 name = "Algorithm design"
-chapters = [71, 72, 73, 74, 75]
+chapters = ["7.1", "7.2", "7.3", "7.4", "7.5"]
 
 [[parts]]
 n = 8
 name = "Systems and scale"
-chapters = [81, 82, 83]
+chapters = ["8.1", "8.2", "8.3"]
 
 [[chapters]]
-n = 11
+n = "1.1"
 title = "Counting steps: how cost grows with input"
 short = "Counting steps"
 focus = "Count how many steps code takes as its input grows, and name the growth with Big O: constant, logarithmic, linear, quadratic, exponential."
-file = "ch11/counting_steps.go"
+file = "ch1_1/counting_steps.go"
 
 [[chapters]]
-n = 12
+n = "1.2"
 title = "Memory as a cost"
 short = "Memory"
 focus = "Measure the extra memory an algorithm needs, the call stack included, and trade time against space."
-file = "ch12/memory_cost.go"
+file = "ch1_2/memory_cost.go"
 
 [[chapters]]
-n = 13
+n = "1.3"
 title = "Timing real code"
 short = "Timing"
 focus = "Time code with a monotonic clock, repeat to tame the noise, and check measurements against the predicted growth."
-file = "ch13/timing.go"
+file = "ch1_3/timing.go"
 
 [[chapters]]
-n = 21
+n = "2.1"
 title = "Arrays and dynamic arrays"
 short = "Arrays"
 focus = "Build each array operation by hand, count its steps, and grow the array when it fills."
-file = "ch21/arrays.go"
+file = "ch2_1/arrays.go"
 
 [[chapters]]
-n = 22
+n = "2.2"
 title = "Searching sorted data"
 short = "Sorted search"
 focus = "Keep data in order and search it in O(log N): binary search, lower bounds and their variations."
-file = "ch22/sorted_search.go"
+file = "ch2_2/sorted_search.go"
 
 [[chapters]]
-n = 23
+n = "2.3"
 title = "Linked lists"
 short = "Linked lists"
 focus = "Build singly and doubly linked lists, walk them with pointers, and see where they beat arrays."
-file = "ch23/linked_lists.go"
+file = "ch2_3/linked_lists.go"
 
 [[chapters]]
-n = 24
+n = "2.4"
 title = "Stacks and queues"
 short = "Stacks and queues"
 focus = "Restrict access to one end or both, and use the restriction to match, undo, schedule and evaluate."
-file = "ch24/stacks_queues.go"
+file = "ch2_4/stacks_queues.go"
 
 [[chapters]]
-n = 25
+n = "2.5"
 title = "Strings"
 short = "Strings"
 focus = "Work through text with counts, two pointers and sliding windows: edits, palindromes, anagrams and the shortest window that covers a set of letters."
-file = "ch25/strings.go"
+file = "ch2_5/strings.go"
 
 [[chapters]]
-n = 26
+n = "2.6"
 title = "Two pointers and intervals"
 short = "Two pointers"
 focus = "Walk a sorted array from both ends or with a read and a write pointer, and sort intervals by start to merge and intersect them in one pass."
-file = "ch26/two_pointers.go"
+file = "ch2_6/two_pointers.go"
 
 [[chapters]]
-n = 27
+n = "2.7"
 title = "Grids and matrices"
 short = "Grids"
 focus = "Index a grid by row and column: walk it in spirals and diagonals, search a sorted grid from a corner, and change it in place using its own cells as scratch space."
-file = "ch27/grids.go"
+file = "ch2_7/grids.go"
 
 [[chapters]]
-n = 31
+n = "3.1"
 title = "Simple sorts: bubble, selection and insertion"
 short = "Simple sorts"
 focus = "Bubble, selection and insertion sort: count their comparisons and moves, and see when each is the right tool."
-file = "ch31/simple_sorts.go"
+file = "ch3_1/simple_sorts.go"
 
 [[chapters]]
-n = 32
+n = "3.2"
 title = "Divide and conquer: mergesort, quicksort and quickselect"
 short = "Divide and conquer"
 focus = "Split, solve, combine: mergesort, quicksort and quickselect, and what each costs in the best and worst case."
-file = "ch32/divide_conquer.go"
+file = "ch3_2/divide_conquer.go"
 
 [[chapters]]
-n = 33
+n = "3.3"
 title = "Linear-time sorts"
 short = "Linear sorts"
 focus = "Beat the N log N bound for comparison sorts by not comparing: count small keys, sort digit by digit, or spread values over buckets."
-file = "ch33/linear_sorts.go"
+file = "ch3_3/linear_sorts.go"
 
 [[chapters]]
-n = 41
+n = "4.1"
 title = "Hash tables"
 short = "Hash tables"
 focus = "Turn keys into array positions for O(1) lookup, and use a table to count, group and match."
-file = "ch41/hash_tables.go"
+file = "ch4_1/hash_tables.go"
 
 [[chapters]]
-n = 42
+n = "4.2"
 title = "Hash functions"
 short = "Hash functions"
 focus = "What makes a hash function spread keys well, and how picking it at random defeats hostile input."
-file = "ch42/hash_functions.go"
+file = "ch4_2/hash_functions.go"
 
 [[chapters]]
-n = 43
+n = "4.3"
 title = "Rolling hashes and text search"
 short = "Text search"
 focus = "Search text with a hash that updates in O(1) per step, and decide when a match must be verified."
-file = "ch43/text_search.go"
+file = "ch4_3/text_search.go"
 
 [[chapters]]
-n = 51
+n = "5.1"
 title = "Binary search trees"
 short = "Search trees"
 focus = "Keep keys ordered in a tree for O(log N) search, insert and delete, as long as the tree stays bushy."
-file = "ch51/binary_search_trees.go"
+file = "ch5_1/binary_search_trees.go"
 
 [[chapters]]
-n = 52
+n = "5.2"
 title = "Heaps and priority queues"
 short = "Heaps"
 focus = "Always reach the most urgent item in O(log N) with a heap stored in an array."
-file = "ch52/heaps.go"
+file = "ch5_2/heaps.go"
 
 [[chapters]]
-n = 53
+n = "5.3"
 title = "Tries"
 short = "Tries"
 focus = "Store words letter by letter to answer prefix questions fast."
-file = "ch53/tries.go"
+file = "ch5_3/tries.go"
 
 [[chapters]]
-n = 54
+n = "5.4"
 title = "Self-balancing trees: red-black trees and treaps"
 short = "Balanced trees"
 focus = "Keep a search tree's height logarithmic whatever the insert order: colour rules, or random priorities."
-file = "ch54/balanced_trees.go"
+file = "ch5_4/balanced_trees.go"
 
 [[chapters]]
-n = 55
+n = "5.5"
 title = "B-trees and block storage"
 short = "B-trees"
 focus = "Count block reads instead of steps, and pack many keys per node to keep the tree shallow."
-file = "ch55/btrees.go"
+file = "ch5_5/btrees.go"
 
 [[chapters]]
-n = 56
+n = "5.6"
 title = "Binary trees"
 short = "Binary trees"
 focus = "Trees with no ordering rule: recursion that returns more than one fact, level-by-level walks, paths, ancestors, and turning a tree into text and back. Examples write a tree as value(left, right), with - for a missing child."
-file = "ch56/binary_trees.go"
+file = "ch5_6/binary_trees.go"
 
 [[chapters]]
-n = 61
+n = "6.1"
 title = "Graphs: representation and traversal"
 short = "Graph traversal"
 focus = "Store a graph as adjacency lists or a matrix, and visit it depth-first or breadth-first."
-file = "ch61/graphs.go"
+file = "ch6_1/graphs.go"
 
 [[chapters]]
-n = 62
+n = "6.2"
 title = "Shortest paths and ordering"
 short = "Paths and order"
 focus = "Find the fewest hops, the cheapest route, and an order that respects every dependency."
-file = "ch62/paths_order.go"
+file = "ch6_2/paths_order.go"
 
 [[chapters]]
-n = 63
+n = "6.3"
 title = "Union-find and spanning trees"
 short = "Union-find"
 focus = "Keep groups that only ever merge: a forest of parent links with path compression and union by size answers same-group questions in near-constant time, which drives cycle checks and minimum spanning trees."
-file = "ch63/union_find.go"
+file = "ch6_3/union_find.go"
 
 [[chapters]]
-n = 64
+n = "6.4"
 title = "Grid and implicit graphs"
 short = "Implicit graphs"
 focus = "Graphs that are never written down: cells of a grid, moves of a piece, words one letter apart. Breadth-first search counts steps, depth-first search fills regions, and colours or memos keep each vertex to one visit."
-file = "ch64/implicit_graphs.go"
+file = "ch6_4/implicit_graphs.go"
 
 [[chapters]]
-n = 71
+n = "7.1"
 title = "Recursion"
 short = "Recursion"
 focus = "Solve a problem through a smaller copy of itself: base cases, the call stack, and building results on the way back."
-file = "ch71/recursion.go"
+file = "ch7_1/recursion.go"
 
 [[chapters]]
-n = 72
+n = "7.2"
 title = "Dynamic programming"
 short = "Dynamic programming"
 focus = "Stop recomputing overlapping subproblems: memoize top-down or fill a table bottom-up."
-file = "ch72/dynamic_programming.go"
+file = "ch7_2/dynamic_programming.go"
 
 [[chapters]]
-n = 73
+n = "7.3"
 title = "Greedy choices and problem transforms"
 short = "Greedy and transforms"
 focus = "Take the locally best step when it is provably safe, or reshape the data until the problem gets easy."
-file = "ch73/greedy_transforms.go"
+file = "ch7_3/greedy_transforms.go"
 
 [[chapters]]
-n = 74
+n = "7.4"
 title = "Randomized algorithms"
 short = "Randomized"
 focus = "Use randomness to shuffle, sample, balance and estimate, and to test primes fast with a tiny chance of error."
-file = "ch74/randomized.go"
+file = "ch7_4/randomized.go"
 
 [[chapters]]
-n = 75
+n = "7.5"
 title = "Backtracking"
 short = "Backtracking"
 focus = "Build answers one choice at a time, undo the choice, try the next: orderings, combinations, placements and puzzles, with pruning that cuts dead branches early."
-file = "ch75/backtracking.go"
+file = "ch7_5/backtracking.go"
 
 [[chapters]]
-n = 81
+n = "8.1"
 title = "Caching and eviction"
 short = "Caching"
 focus = "Keep recent answers close: LRU and other eviction policies, and how to measure a hit rate."
-file = "ch81/caching.go"
+file = "ch8_1/caching.go"
 
 [[chapters]]
-n = 82
+n = "8.2"
 title = "External memory: sorting data bigger than RAM"
 short = "External sort"
 focus = "Sort data that does not fit in memory by making runs and merging them, counting I/Os as you go."
-file = "ch82/external_sort.go"
+file = "ch8_2/external_sort.go"
 
 [[chapters]]
-n = 83
+n = "8.3"
 title = "Compact sets: bit vectors and Bloom filters"
 short = "Compact sets"
 focus = "Represent a set with one bit per possible member, or approximately in far less with a Bloom filter."
-file = "ch83/compact_sets.go"
+file = "ch8_3/compact_sets.go"
